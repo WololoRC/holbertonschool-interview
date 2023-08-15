@@ -1,5 +1,9 @@
 #!/usr/bin/python3
+'''can unlock all?'''
+
+
 def canUnlockAll(boxes):
+    """xd"""
     unlocked = [0]
 
     for box_id, box in enumerate(boxes):
