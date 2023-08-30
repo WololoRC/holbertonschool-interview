@@ -22,5 +22,22 @@ typedef struct binary_tree_s
 
 void binary_tree_print(const binary_tree_t *);
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
+static void _binary_tree_delete(binary_tree_t *tree);
 
 #endif /* _BINARY_TREES_H_ */
+
+/**
+ * _binary_tree_delete - Deallocate a binary tree
+ *
+ * @tree: Pointer to the root of the tree to delete
+ */
+static void _binary_tree_delete(binary_tree_t *tree)
+{
+    if (tree)
+    {
+        _binary_tree_delete(tree->left);
+        _binary_tree_delete(tree->right);
+        free(tree);
+    }
+}
+
