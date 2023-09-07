@@ -13,8 +13,12 @@ if __name__ != "__main__":
         """
 
         try:
-            cnt = divisors(n)[1]
+            if len(divisors(n)) < 2:
+                cnt = divisors(n)[0]
+            else:
+                cnt = divisors(n)[1]
+
         except IndexError:
-            cnt = divisors(n)[0]
+            return 0
 
         return cnt + (n // cnt)
