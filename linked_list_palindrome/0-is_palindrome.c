@@ -27,14 +27,12 @@ int is_palindrome(listint_t **head)
 
     if (fast_ptr != NULL)
     {
-        // Odd number of elements, skip the middle element.
         slow_ptr = slow_ptr->next;
     }
 
     second_half = slow_ptr;
     prev_slow_ptr->next = NULL;
 
-    // Reverse the second half of the list.
     second_half = reverse_listint(&second_half);
 
     while (*head != NULL && second_half != NULL)
