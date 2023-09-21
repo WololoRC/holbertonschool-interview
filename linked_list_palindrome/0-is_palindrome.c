@@ -46,7 +46,6 @@ int is_palindrome(listint_t **head)
         second_half = second_half->next;
     }
 
-    // Restore the original list.
     second_half = reverse_listint(&second_half);
     prev_slow_ptr->next = second_half;
 
