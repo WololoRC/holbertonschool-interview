@@ -26,13 +26,13 @@ for line in stdin:
     try:
         if cnt == 10:
             cnt = 0
-            print(f"File size: {file_size}")
+            print("File size: {}".format(file_size))
             file_size = 0
             for key, value in status_codes.items():
-                print(f"{key}: {value}")
+                print("{}: {}".format(key, value))
 
     except KeyboardInterrupt:
-        print(f"File size: {file_size}")
+        print("File size: {}".format(file_size))
         file_size = 0
         for key, value in status_codes.items():
-            print(f"{key}: {value}")
+            print("{}: {}".format(key, value))
