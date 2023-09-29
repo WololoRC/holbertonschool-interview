@@ -26,8 +26,15 @@ for line in stdin:
     cnt += 1
 
     if cnt == 10:
+        return_list = []
         cnt = 0
         print("File size: {}".format(file_size))
         file_size = 0
         for key, value in ocurrences.items():
-            print("{}: {}".format(key, value))
+            return_list.append("{}: {}".format(key, value))
+        
+        return_list.sort()
+        for item in return_list:
+            print(item)
+
+        ocurrences.clear()
