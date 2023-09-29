@@ -29,7 +29,6 @@ for line in stdin:
         return_list = []
         cnt = 0
         print("File size: {}".format(file_size))
-        file_size = 0
         for key, value in ocurrences.items():
             return_list.append("{}: {}".format(key, value))
         
