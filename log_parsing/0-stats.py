@@ -6,6 +6,7 @@ import re
 cnt = 0
 file_size = 0
 status_codes = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
+ocurrences = {}
 
 for line in stdin:
     l_line = re.split(
@@ -20,19 +21,13 @@ for line in stdin:
 
     x = status_codes.get(int(l_line[2]))
     status_codes.update({int(l_line[2]): x + 1})
+    ocurrences.update({int(l_line[2]): status_codes.get(int(l_line[2]))})
 
     cnt += 1
 
-    try:
-        if cnt == 10:
-            cnt = 0
-            print("File size: {}".format(file_size))
-            file_size = 0
-            for key, value in status_codes.items():
-                print("{}: {}".format(key, value))
-
-    except KeyboardInterrupt:
+    if cnt == 10:
+        cnt = 0
         print("File size: {}".format(file_size))
         file_size = 0
-        for key, value in status_codes.items():
+        for key, value in ocurrences.items():
             print("{}: {}".format(key, value))
