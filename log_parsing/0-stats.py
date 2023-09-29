@@ -36,4 +36,3 @@ for line in stdin:
         for item in return_list:
             print(item)
 
-        ocurrences.clear()
